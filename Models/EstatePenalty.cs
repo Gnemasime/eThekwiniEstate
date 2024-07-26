@@ -44,5 +44,31 @@ namespace eThekwiniEstate.Models
         {
             return ARate() * VCost();
         }
+
+        //1.3.
+        public double PullAge()
+        {
+            EstateDb db = new EstateDb();
+            var cc = (from v in db.Ow
+                      where v.OwnerId == OwnerId
+                      select v.OwnerAge).Single();
+
+            return cc;
+        }
+        public double CalcAgePenalty()
+        {
+           double pcharge = 0.00;
+
+            if(PullAge() < 26)
+            {
+                pcharge = CalcAreaPenaltyCost() + (CalcAreaPenaltyCost() * 0.05);
+            }
+            else
+            {
+                pcharge = CalcAreaPenaltyCost() + (CalcAreaPenaltyCost() * 0.03);
+            }
+
+            return pcharge;
+        }
     }
 }
