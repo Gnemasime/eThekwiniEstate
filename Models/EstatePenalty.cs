@@ -18,5 +18,31 @@ namespace eThekwiniEstate.Models
         public virtual Area Area { get; set;}
         public int ViolationCode { get; set; }
         public double TPenaltyCost { get; set; }
+
+        //1.2
+        public double VCost()
+        {
+            EstateDb db = new EstateDb();
+            var cc = (from v in db.Vio
+                      where v.ViolationCode == ViolationCode
+                      select v.ViolationCost).Single();
+
+            return cc;
+        }
+
+        public double ARate()
+        {
+            EstateDb db = new EstateDb();
+            var cc = (from v in db.Are
+                      where v.AreaCode == AreaCode
+                      select v.AreaRate).Single();
+
+            return cc;
+        }
+
+        public double CalcAreaPenaltyCost()
+        {
+            return ARate() * VCost();
+        }
     }
 }
