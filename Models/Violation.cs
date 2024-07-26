@@ -1,18 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Web;
 
 namespace eThekwiniEstate.Models
 {
-    public class Area
+    public class Violation
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int AreaCode { get; set; }
-        public string AreaName { get; set; }
-        public double AreaRate { get; set; }
+        public int ViolationCode { get; set; }
+        public string ViolationName { get; set; }
+        public double ViolationCost { get; set; }
+
     }
 }
