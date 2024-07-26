@@ -70,5 +70,12 @@ namespace eThekwiniEstate.Models
 
             return pcharge;
         }
+
+        //1.4.
+        public double CalcTPenaltyC()
+        {
+            return CalcAgePenalty();
+        }
+
     }
 }
