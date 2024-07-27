@@ -101,5 +101,24 @@ namespace eThekwiniEstate.Models
             db.SaveChanges();
         } 
 
+        public bool CheckLicense()
+        {
+            bool temp;
+            EstateDb db = new EstateDb();
+            Owner owner = (from o in db.Ow
+                           where o.OwnerId == OwnerId
+                           select o).FirstOrDefault();
+
+            if(owner.status == "Valid")
+            {
+                temp = true;
+            }
+            else
+            {
+                temp = false;
+            }
+            return temp;
+            }
+        
     } 
-}
+} 
