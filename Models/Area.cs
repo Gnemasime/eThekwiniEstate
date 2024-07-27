@@ -10,7 +10,7 @@ namespace eThekwiniEstate.Models
     public class Area
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+       
         public int AreaCode { get; set; }
         public string AreaName { get; set; }
         public double AreaRate { get; set; }

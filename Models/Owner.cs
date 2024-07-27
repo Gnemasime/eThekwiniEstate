@@ -10,7 +10,7 @@ namespace eThekwiniEstate.Models
     public class Owner
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    
         public int OwnerId { get; set; }
         public string OwnerName { get; set; }
         public int OwnerAge { get; set; }

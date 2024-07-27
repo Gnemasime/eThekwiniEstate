@@ -10,7 +10,7 @@ namespace eThekwiniEstate.Models
     public class Violation
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        
         public int ViolationCode { get; set; }
         public string ViolationName { get; set; }
         public double ViolationCost { get; set; }

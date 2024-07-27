@@ -1,0 +1,50 @@
+﻿@model eThekwiniEstate.Models.EstatePenalty
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>EstatePenalty</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Area.AreaName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Area.AreaName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Onwer.OwnerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Onwer.OwnerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ViolationCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ViolationCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TPenaltyCost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TPenaltyCost)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PenaltyID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
