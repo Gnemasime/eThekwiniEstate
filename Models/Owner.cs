@@ -15,5 +15,6 @@ namespace eThekwiniEstate.Models
         public string OwnerName { get; set; }
         public int OwnerAge { get; set; }
         public double OwnerPoints { get; set; }
+        public string status { get; set; }
     }
 }

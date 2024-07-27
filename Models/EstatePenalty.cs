@@ -74,8 +74,32 @@ namespace eThekwiniEstate.Models
         //1.4.
         public double CalcTPenaltyC()
         {
-            return CalcAgePenalty();
+            return VCost() + CalcAgePenalty();
         }
 
-    }
+        //1.5
+        public double CalcPointsD()
+        {
+            return Math.Floor(VCost() * 0.01);
+        }
+
+        //1.6
+        public void UpdatePoints()
+        {
+           
+            EstateDb db = new EstateDb() ;
+            Owner owner = (from m in db.Ow
+                           where m.OwnerId == OwnerId
+                           select m).FirstOrDefault();
+
+            owner.OwnerPoints = owner.OwnerPoints - Convert.ToInt16(CalcPointsD());
+            if(owner.OwnerPoints < 0)
+            {
+                owner.OwnerPoints = 0;
+                owner.status = "Invalid";
+            }
+            db.SaveChanges();
+        } 
+
+    } 
 }
